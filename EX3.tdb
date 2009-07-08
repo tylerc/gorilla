@@ -1,4 +1,0 @@
-Bug ^ ID | Description ^ LSTRING | Type ^ CHOICE Defect-Blocker-Enhancement-Feature Request | Status ^ CHOICE Open-Fixed | Priority ^ CHOICE Low-Medium-High | Milestone ^ STRING 
-3 | Be able to edit bugs | Feature Request | Fixed | High | 0.2
-5 | Filter by type | Feature Request | Fixed | Medium | 0.3
-7 | filter by status | Feature Request | Fixed | Medium | 0.3

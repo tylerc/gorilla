@@ -1,6 +1,18 @@
 Gorilla
 =======
 
+Purpose
+-------
+
+Gorilla is a simple database viewer and editor. It uses a custom database, that can be read and written by hand, but it is easier to write with Gorilla.
+
+Gorilla is meant to be simple, and not do everything. Its focus is not speed, but simplicity and flexibility. Gorilla only scales for personal and small team use (so don't try to make the next wikipedia with it). See "Speed" below for more information.
+
+Notice
+------
+
+Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. The goal for version 1.0 is to have it be able to be used as a wiki.
+
 Using
 -----
 
@@ -36,16 +48,6 @@ After you have created your types, you can start creating your database entries.
 After you have created a few entries, you should mess around with the filters. They're harder to explain than if you simply learn by using them.
 
 If you would like to change the global style sheet for Gorilla, change style.css, or if you would like to change the style only for your database, create a file with the same name as your database with the .css extension (i.e. BUGS.tdb.css). Add your custom CSS into that file.
-
-Purpose
--------
-
-Gorilla is meant to be simple, and not do everything. Its focus is not speed, but simplicity and flexibility. Gorilla only scales for personal and small team use (so don't try to make the next wikipedia with it). See "Speed" below for more information.
-
-Notice
-------
-
-Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. The goal for version 1.0 is to have it be able to be used as a wiki.
 
 Speed
 -----

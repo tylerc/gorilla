@@ -1,3 +1,7 @@
+# Creates a database for stress testing
+#
+# Change the number in the '.times' loop to change the
+# number of entries in the database.
 File.open("STRESS.tdb", 'w') do |f|
 	f.puts "Bug ^ ID | Description ^ LSTRING | Type ^ CHOICE Defect-Blocker-Enhancement-Feature Request | Status ^ CHOICE Open-Fixed | Priority ^ CHOICE Low-Medium-High | Milestone ^ STRING"
 	type = ['Defect', 'Blocker', 'Enhancement', 'Feature Request']

@@ -1,0 +1,37 @@
+table, span.flash
+{
+color:#000000;
+background-color:#bbffee;
+padding-top:8px;
+padding-bottom:8px;
+padding-left:10px;
+padding-right:10px;
+border:2px solid #d4d4d4;
+}
+
+span.flash
+{
+background-color:#e5ffcc;
+}
+
+td
+{
+padding:5px;
+border-right:1px solid #DA5;
+border-top:1px solid #DA5;
+}
+a.intable:visited, a.intable:link
+{
+color:#000;
+text-decoration:none;
+}
+
+a.intable:active
+{
+color:#DA5;
+}
+
+a.intable:hover
+{
+text-decoration:underline;
+}

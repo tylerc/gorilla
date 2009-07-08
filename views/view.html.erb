@@ -1,0 +1,20 @@
+<table>
+<tr>
+<% @order.each do |item| %>
+<td><%= item %></td>
+<% end %>
+</tr>
+<% 
+number = request.path.split('/')[-1].to_i
+db = {number => @db[number]}
+p db
+%>
+<%= list db, request %>
+</table>
+<form action="/edit/<%= number %>" method='post'>
+<input type='submit' value="Edit This <%= @order[@id_location] %>"/>
+</form>
+
+<form action="/delete/<%= number %>" method='post'>
+<input type='submit' value='Delete This <%= @order[@id_location]  %>' onclick='return confirmSubmit("<%= @order[@id_location] %>")'/>
+</form>

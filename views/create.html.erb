@@ -1,0 +1,7 @@
+<%
+data = request.query.clone
+id = data.delete "id"
+@db[id.to_i] = data
+save @db, @schema, @order, @file
+response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Bug%20Saved")
+%>

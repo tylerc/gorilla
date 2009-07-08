@@ -1,0 +1,28 @@
+<%
+case request.query['type']
+	when "STRING"
+		@schema[request.query['name']] = "STRING"
+		@db.each_key do |key|
+			@db[key][request.query['name']] = ""
+		end
+	when "LSTRING"
+		@schema[request.query['name']] = "LSTRING"
+		@db.each_key do |key|
+			@db[key][request.query['name']] = ""
+		end
+	when "CHOICE"
+		ar = []
+		request.query['add'].split('-').each do |x|
+			ar += [x]
+		end
+		@schema[request.query['name']] = ar
+		@db.each_key do |key|
+			@db[key][request.query['name']] = ""
+		end
+	when "ID"
+		@schema[request.query['name']] = "ID"
+end
+@order += request.query['name']
+save @db, @schema, @order, @file
+response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Property%20Created")
+%>

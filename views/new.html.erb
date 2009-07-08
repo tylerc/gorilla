@@ -1,0 +1,20 @@
+<table>
+<tr>
+<% @order.each do |item| %>
+<td><%= item %></td>
+<% end %>
+</tr>
+<form method='post' action='/create'>
+<td><%= begin ; @db.keys.sort[-1]+1 ; rescue ; 1 ; end %><input type='hidden' value=<%= begin ; @db.keys.sort[-1]+1 ; rescue ; 1 ; end %> name='id'  /></td>
+<% @order2.each do |item| %>
+
+<% if @schema[item] == "LSTRING" or @schema[item] == "STRING" %>
+<td><input type='text' name='<%= item %>' /></td>
+<% end %>
+<% if @schema[item].class == Array %>
+<td><%= gen_options([@schema[item], @schema[item]], item) %></td>
+<% end %>
+<% end %>
+</table>
+<input type='submit' value='Create' />
+</form>

@@ -1,0 +1,11 @@
+<%= request.query.inspect %>
+<%
+@schema.delete request.query['name']
+@db.each_key do |key|
+	@db[key].delete request.query['name']
+end
+@order.delete request.query['name']
+
+save @db, @schema, @order, @file
+response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Property%20Deleted")
+%>

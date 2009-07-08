@@ -1,0 +1,129 @@
+--- 
+- 1: 
+    :type: !str:WEBrick::HTTPUtils::FormData 
+      str: blocker
+      "@filename": 
+      "@header": &id001 {}
+
+      "@name": type
+      "@next_data": 
+      "@raw_header": &id002 []
+
+    :priority: !str:WEBrick::HTTPUtils::FormData 
+      str: medium
+      "@filename": 
+      "@header": *id001
+      "@name": priority
+      "@next_data": 
+      "@raw_header": *id002
+    :description: !str:WEBrick::HTTPUtils::FormData 
+      str: test
+      "@filename": 
+      "@header": *id001
+      "@name": description
+      "@next_data": 
+      "@raw_header": *id002
+    :status: !str:WEBrick::HTTPUtils::FormData 
+      str: open
+      "@filename": 
+      "@header": *id001
+      "@name": status
+      "@next_data": 
+      "@raw_header": *id002
+    :milestone: !str:WEBrick::HTTPUtils::FormData 
+      str: v1
+      "@filename": 
+      "@header": *id001
+      "@name": milestone
+      "@next_data": 
+      "@raw_header": *id002
+- ? !str:WEBrick::HTTPUtils::FormData Status
+  : 
+    - - !str:WEBrick::HTTPUtils::FormData Open
+      - !str:WEBrick::HTTPUtils::FormData Fixed
+    - - !str:WEBrick::HTTPUtils::FormData open
+      - !str:WEBrick::HTTPUtils::FormData fixed
+
+  ? !str:WEBrick::HTTPUtils::FormData Milestone
+  : STRING
+
+  ? !str:WEBrick::HTTPUtils::FormData Priority
+  : 
+    - - !str:WEBrick::HTTPUtils::FormData Low
+      - !str:WEBrick::HTTPUtils::FormData Medium
+      - !str:WEBrick::HTTPUtils::FormData High
+    - - !str:WEBrick::HTTPUtils::FormData low
+      - !str:WEBrick::HTTPUtils::FormData medium
+      - !str:WEBrick::HTTPUtils::FormData high
+
+  ? !str:WEBrick::HTTPUtils::FormData Type
+  : 
+    - - !str:WEBrick::HTTPUtils::FormData Defect
+      - !str:WEBrick::HTTPUtils::FormData Blocker
+      - !str:WEBrick::HTTPUtils::FormData Enhancement
+      - !str:WEBrick::HTTPUtils::FormData Feature Request
+    - - !str:WEBrick::HTTPUtils::FormData defect
+      - !str:WEBrick::HTTPUtils::FormData blocker
+      - !str:WEBrick::HTTPUtils::FormData enhancement
+      - !str:WEBrick::HTTPUtils::FormData feature request
+
+  ? !str:WEBrick::HTTPUtils::FormData Bug
+  : ID
+
+  ? !str:WEBrick::HTTPUtils::FormData Description
+  : STRING
+
+- - !str:WEBrick::HTTPUtils::FormData 
+    str: Bug
+    "@filename": 
+    "@header": {}
+
+    "@name": name
+    "@next_data": 
+    "@raw_header": []
+
+  - !str:WEBrick::HTTPUtils::FormData 
+    str: Description
+    "@filename": 
+    "@header": {}
+
+    "@name": name
+    "@next_data": 
+    "@raw_header": []
+
+  - !str:WEBrick::HTTPUtils::FormData 
+    str: Type
+    "@filename": 
+    "@header": {}
+
+    "@name": name
+    "@next_data": 
+    "@raw_header": []
+
+  - !str:WEBrick::HTTPUtils::FormData 
+    str: Status
+    "@filename": 
+    "@header": {}
+
+    "@name": name
+    "@next_data": 
+    "@raw_header": []
+
+  - !str:WEBrick::HTTPUtils::FormData 
+    str: Priority
+    "@filename": 
+    "@header": {}
+
+    "@name": name
+    "@next_data": 
+    "@raw_header": []
+
+  - !str:WEBrick::HTTPUtils::FormData 
+    str: Milestone
+    "@filename": 
+    "@header": {}
+
+    "@name": name
+    "@next_data": 
+    "@raw_header": []
+

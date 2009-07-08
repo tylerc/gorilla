@@ -1,0 +1,25 @@
+<% 
+number = request.path.split('/')[-1].to_i
+db = {}
+db[number] = @db[number]
+%>
+<table>
+<tr>
+<% @order.each do |item| %>
+<td><%= item %></td>
+<% end %>
+</tr>
+<form method='post' action='/create'>
+<td><%= number %><input type='hidden' value=<%= number %> name='id'  /></td>
+<% @order2.each do |item| %>
+
+<% if @schema[item] == "LSTRING" or @schema[item] == "STRING" %>
+<td><input type='text' name='<%= item %>' value='<%= db.values[0][item] %>'/></td>
+<% end %>
+<% if @schema[item].class == Array %>
+<td><%= gen_options([@schema[item], @schema[item]], item, db.values[0][item]) %></td>
+<% end %>
+<% end %>
+</table>
+<input type='submit' value='Create' />
+</form>

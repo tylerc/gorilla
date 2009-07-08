@@ -1,0 +1,115 @@
+--- 
+- 5: 
+    :type: feature request
+    :priority: medium
+    :description: Filter by type
+    :status: fixed
+    :milestone: "0.3"
+  16: 
+    :type: feature request
+    :priority: medium
+    :description: Load XML
+    :status: open
+    :milestone: "0.6"
+  11: 
+    :type: feature request
+    :priority: low
+    :description: Be able to add new columns
+    :status: fixed
+    :milestone: "0.5"
+  17: 
+    :type: feature request
+    :priority: medium
+    :description: Save XML
+    :status: open
+    :milestone: "0.6"
+  12: 
+    :type: feature request
+    :priority: high
+    :description: Be able to filter by milestone
+    :status: fixed
+    :milestone: "0.5"
+  18: 
+    :type: feature request
+    :priority: high
+    :description: Be able to delete columns
+    :status: fixed
+    :milestone: "0.5"
+  7: 
+    :type: feature request
+    :priority: medium
+    :description: filter by status
+    :status: fixed
+    :milestone: "0.3"
+  13: 
+    :type: feature request
+    :priority: medium
+    :description: "Sort by bug #"
+    :status: fixed
+    :milestone: "0.4"
+  8: 
+    :type: feature request
+    :priority: high
+    :description: sort by priority
+    :status: fixed
+    :milestone: "0.4"
+  3: 
+    :type: feature request
+    :priority: high
+    :description: Be able to edit bugs
+    :status: fixed
+    :milestone: "0.2"
+  14: 
+    :type: feature request
+    :priority: medium
+    :description: Load YAML
+    :status: open
+    :milestone: "0.6"
+  9: 
+    :type: enhancement
+    :priority: medium
+    :description: redirect and flash instead of showing page
+    :status: fixed
+    :milestone: "0.2"
+  15: 
+    :type: feature request
+    :priority: medium
+    :description: Save YAML
+    :status: open
+    :milestone: "0.6"
+  10: 
+    :type: enhancement
+    :priority: medium
+    :description: Deletion confirmation message
+    :status: fixed
+    :milestone: "0.3"
+- Status: 
+  - - Open
+    - Fixed
+  - - open
+    - fixed
+  Milestone: STRING
+  "Bug #": ID
+  Priority: 
+  - - Low
+    - Medium
+    - High
+  - - low
+    - medium
+    - high
+  Type: 
+  - - Defect
+    - Blocker
+    - Enhancement
+    - Feature Request
+  - - defect
+    - blocker
+    - enhancement
+    - feature request
+  Description: STRING
+- - "Bug #"
+  - Description
+  - Type
+  - Status
+  - Priority
+  - Milestone

@@ -1,0 +1,71 @@
+<%
+def gen_options options, name, selected=nil, onclick=false
+	change=""
+	if onclick
+		change=%&onChange="document.location.href=document.getElementById('#{name}').options[document.getElementById('#{name}').selectedIndex].value"&
+	end
+	text = "\n<select name='#{name}' id='#{name}' #{change}'>\n"
+	options[0].length.times do |option|
+		text += "\t<option value='#{options[1][option]}'"
+		if selected == options[1][option]
+			text += " selected='true'"
+		end
+		text += ">#{options[0][option]}</option>\n"
+	end
+	text += "</select>\n"
+	return text
+end
+%>
+<%
+def build_query hash
+	text = "?"
+	hash.each do |pair|
+		unless pair[0] == 'm'
+		  text += pair[0] + '=' + pair[1] + '&'
+		end
+	end
+	return text
+end
+%>
+<%
+def list(db, request)
+	text = ""
+	keys = db.keys.sort
+	if request.query['s'] != nil and @schema[request.query['s']] != "ID"
+		newlist = {}
+		db.keys.each do |key|
+			x = db[key][request.query['s']]
+			newlist[x + key.to_s] = key
+		end
+		keys = []
+		newlist.keys.sort.each do |key|
+			keys += [newlist[key]]
+		end
+	end
+	if request.query['r'] != nil
+		if request.query['r'] == '1'
+			keys.reverse!
+		end
+	end
+	keys.each do |key|
+		text += "<tr>"
+		text += "<td><a href=\"/view/#{key}\">#{key}</a></td>"
+		#text += "<div class='#{@order[@id_location]}'><a href=\"/view/#{key}\">#{key}</a></div>"
+		@order2.each do |item|
+			text += "<td><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></td>"
+			#text += "<div class='#{item}'><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></div>"
+		end
+		text += "</tr>"
+	end
+	return text
+end
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title><%= @order[@id_location] %></title>
+		<link rel="stylesheet" type="text/css" href="/style.css" />
+	</head>
+
+<body>
+<a href='/'>return to index</a>

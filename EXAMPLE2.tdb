@@ -1,0 +1,28 @@
+Bug ^ ID | Description ^ LSTRING | Type ^ CHOICE Defect-Blocker-Enhancement-Feature Request | Status ^ CHOICE Open-Fixed | Priority ^ CHOICE Low-Medium-High | Milestone ^ STRING 
+3 | Be able to edit bugs | Feature Request | Fixed | High | 0.2
+5 | Filter by type | Feature Request | Fixed | Medium | 0.3
+7 | filter by status | Feature Request | Fixed | Medium | 0.3
+8 | sort by priority | Feature Request | Fixed | High | 0.4
+9 | redirect and flash instead of showing page | Enhancement | Fixed | Medium | 0.2
+10 | Deletion confirmation message | Enhancement | Fixed | Medium | 0.3
+11 | Be able to add new columns | Feature Request | Fixed | Low | 0.5
+12 | Be able to filter by milestone | Feature Request | Fixed | High | 0.5
+13 | Sort by bug # | Feature Request | Fixed | Medium | 0.4
+14 | Load YAML | Feature Request | Fixed | Medium | 0.6
+15 | Save YAML | Feature Request | Fixed | Medium | 0.6
+18 | Be able to delete columns | Feature Request | Fixed | High | 0.5
+19 | Index filter changeable | Feature Request | Fixed | High | 0.7
+20 | Filters on CHOICEs dropdown, additive | Feature Request | Fixed | Medium | 0.7
+22 | Inline edit option | Feature Request | Open | Low | 0.8
+23 | Property deletion confirmation | Enhancement | Fixed | High | 0.6
+24 | Editable Properties | Feature Request | Open | Medium | 0.9
+25 | Creation of LSTRING properties | Enhancement | Fixed | Medium | 0.7
+26 | Search support for LSTRINGs | Feature Request | Fixed | Medium | 0.9
+27 | File command line arguments | Feature Request | Open | Medium | 0.10
+28 | Port command line argument | Feature Request | Open | Low | 0.10
+29 | contents of a property can be stored in a file | Feature Request | Open | High | 0.10
+30 | Sort option | Feature Request | Open | Medium | 0.11
+31 | Custom CSS (based on filename) | Feature Request | Open | Low | 0.11
+32 | Custom logic | Feature Request | Open | High | 0.12
+34 | Wiki/Help Pages using this system | Feature Request | Open | High | 1.0
+35 | Rearangeable Properties | Feature Request | Open | Low | 0.9

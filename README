@@ -35,7 +35,7 @@ After you have created your types, you can start creating your database entries.
 
 After you have created a few entries, you should mess around with the filters. They're harder to explain than if you simply learn by using them.
 
-If you would like to change the style sheet for Gorilla, change style.css, or if you would like to change the style only for your database, create a file with the same name as your ID field with the .css extension. Add your custom CSS into that file.
+If you would like to change the global style sheet for Gorilla, change style.css, or if you would like to change the style only for your database, create a file with the same name as your database with the .css extension (i.e. BUGS.tdb.css). Add your custom CSS into that file.
 
 Purpose
 -------

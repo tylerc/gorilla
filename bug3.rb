@@ -55,9 +55,9 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			end
 			response.body += ERB.new(erb_text).result(binding)
 		end
-		if request.path == '/style.css'
+		if request.path.split('.')[-1] == 'css'
 			response['Content-Type'] = 'text/css'
-			response.body = File.new("style.css",'r').readlines.join
+			response.body = File.new(request.path[1..-1],'r').readlines.join
 		end
 	end
 	

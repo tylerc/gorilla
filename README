@@ -6,6 +6,11 @@ Purpose
 
 Gorilla was initially designed to visualize a (text-based) bug list I had. Then after that (and still at the time of this writing) a personal wiki. Gorilla is meant for personal and small team use. When I developed this I am/was not trying for speed or security. Because of this, everything is done simply (and occasionally brute-force-ishly) for the sake of developing as fast as possible.
 
+Notice
+------
+
+Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. The goal for version 1.0 is to have it be able to be used as a wiki.
+
 Speed
 -----
 

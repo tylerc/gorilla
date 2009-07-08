@@ -19,10 +19,9 @@ Bug ^ ID | Description ^ LSTRING | Type ^ CHOICE Defect-Blocker-Enhancement-Feat
 25 | Creation of LSTRING properties | Enhancement | Fixed | Medium | 0.7
 26 | Search support for LSTRINGs | Feature Request | Fixed | Medium | 0.9
 27 | File command line arguments | Feature Request | Fixed | Medium | 0.10
-28 | Port command line argument | Feature Request | Open | Low | 0.10
+28 | Port command line argument | Feature Request | Fixed | Low | 0.10
 29 | contents of a property can be stored in a file | Feature Request | Open | High | 0.10
-30 | Sort option | Feature Request | Open | Medium | 0.11
-31 | Custom CSS (based on filename) | Feature Request | Open | Low | 0.11
+31 | Custom CSS (based on filename) | Feature Request | Fixed | Low | 0.11
 32 | Custom logic | Feature Request | Open | High | 0.12
 34 | Wiki/Help Pages using this system | Feature Request | Open | High | 1.0
 35 | Rearangeable Properties | Feature Request | Open | Low | 0.9

@@ -5,16 +5,9 @@ require 'db'
 include WEBrick
 
 class CustomServlet < HTTPServlet::AbstractServlet
-	def initialize server
+	def initialize server, file
 		super server
-		ARGV.each do |i|
-			if i = '-file'
-				@file = ARGV[1]
-			end
-		end
-		if @file.nil?
-			@file = "BUGS.tdb"
-		end
+		@file = file
 		@db, @schema, @order = load(@file)
 		if !@schema.empty?
 			@schema.each_key do |key|
@@ -72,9 +65,19 @@ class CustomServlet < HTTPServlet::AbstractServlet
 end
 
 if __FILE__ == $0
+	file = 'BUGS.tdb'
+	port = 8000
+	ARGV.each do |i|
+		if i == '-f'
+			file = ARGV[ARGV.index(i)+1]
+		end
+		if i == '-p'
+			port = ARGV[ARGV.index(i)+1]
+		end
+	end
 	# Mount servlets.
-	s = HTTPServer.new(:Port => 8000, :MimeTypes =>  WEBrick::HTTPUtils::DefaultMimeTypes, :DocumentRoot => Dir.pwd)
-	s.mount('/', CustomServlet)
+	s = HTTPServer.new(:Port => port, :MimeTypes =>  WEBrick::HTTPUtils::DefaultMimeTypes, :DocumentRoot => Dir.pwd)
+	s.mount('/', CustomServlet, file)
 
 	# Trap signals so as to shutdown cleanly.
 	['TERM', 'INT'].each do |signal|

@@ -65,6 +65,9 @@ end
 	<head>
 		<title><%= @order[@id_location] %></title>
 		<link rel="stylesheet" type="text/css" href="/style.css" />
+		<% if File.exists? "#{@order[@id_location]}.css" %>
+		<link rel='stylesheet' type='text/css' href='/<%= @order[@id_location] %>.css' />
+		<% end %>
 	</head>
 
 <body>

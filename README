@@ -1,6 +1,16 @@
 Gorilla
 =======
 
+Using
+-----
+
+To get an idea of what Gorilla can do run this command:
+ruby bug3.rb
+or this (if you want to be specific)
+ruby bug3.rb -f BUGS.tdb
+
+If you navigate your web browser to localhost:8000 you should be able to see Gorilla in action!
+
 Purpose
 -------
 

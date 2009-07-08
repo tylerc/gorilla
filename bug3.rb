@@ -7,7 +7,14 @@ include WEBrick
 class CustomServlet < HTTPServlet::AbstractServlet
 	def initialize server
 		super server
-		@file = "EXAMPLE2.tdb"
+		ARGV.each do |i|
+			if i = '-file'
+				@file = ARGV[1]
+			end
+		end
+		if @file.nil?
+			@file = "BUGS.tdb"
+		end
 		@db, @schema, @order = load(@file)
 		if !@schema.empty?
 			@schema.each_key do |key|

@@ -8,7 +8,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 	def initialize server, file
 		super server
 		@file = file
-		@db, @schema, @order = load(@file)
+		@db, @schema, @order = load_db(@file)
 		if !@schema.empty?
 			@schema.each_key do |key|
 				if @schema[key] == "ID"

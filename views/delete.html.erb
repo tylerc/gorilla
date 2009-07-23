@@ -1,6 +1,6 @@
 <%
 number = request.path.split('/')[-1].to_i
 @db.delete number
-save @db, @schema, @order, @file
+save_db @db, @schema, @order, @file
 response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Bug%20Deleted")
 %>

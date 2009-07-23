@@ -1,6 +1,6 @@
 require 'yaml'
 
-def load_db3 file
+def load_tdb3 file
 	input = File.new file, 'r'
 	lines = input.readlines
 	# If it is a blank file
@@ -44,7 +44,7 @@ def load_db3 file
 	return db, schema2, order
 end
 
-def save_db3 db, schema, order, file
+def save_tdb3 db, schema, order, file
 	text = ""
 	order.length.times do |x|
 		text += order[x].to_s + " ^ "
@@ -96,16 +96,16 @@ def load_yaml file
 	File.open( file ) { |yf| YAML::load( yf ) }
 end
 
-def save db, schema, order, file
+def save_db db, schema, order, file
 	if file[-3..-1] == 'yml' or file[-4..-1] == 'yaml'
 		save_yaml db, schema, order, file
 	end
 	if file[-3..-1] == 'tdb'
-		save_db3 db, schema, order, file
+		save_tdb3 db, schema, order, file
 	end
 end
 
-def load file
+def load_db file
 	if !File.exists?(file)
 			a = File.new file, 'w'
 			a.close
@@ -114,7 +114,7 @@ def load file
 		return load_yaml(file)
 	end
 	if file[-3..-1] == 'tdb'
-		return load_db3(file)
+		return load_tdb3(file)
 	end
 end
 

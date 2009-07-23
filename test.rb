@@ -3,4 +3,4 @@
 require 'benchmark'
 require 'db'
 
-puts Benchmark.measure { load "STRESS.tdb" }
+puts Benchmark.measure { load_db "STRESS.tdb" }

@@ -1,26 +1,26 @@
-Bug ^ ID | Status ^ CHOICE Open-Fixed | Description ^ LSTRING | Type ^ CHOICE Defect-Blocker-Enhancement-Feature Request | Priority ^ CHOICE Low-Medium-High | Milestone ^ STRING 
-3  | Fixed | Be able to edit bugs                           | Feature Request | High   | 0.2  | 
-5  | Fixed | Filter by type                                 | Feature Request | Medium | 0.3  | 
-7  | Fixed | filter by status                               | Feature Request | Medium | 0.3  | 
-8  | Fixed | sort by priority                               | Feature Request | High   | 0.4  | 
-9  | Fixed | redirect and flash instead of showing page     | Enhancement     | Medium | 0.2  | 
-10 | Fixed | Deletion confirmation message                  | Enhancement     | Medium | 0.3  | 
-11 | Fixed | Be able to add new columns                     | Feature Request | Low    | 0.5  | 
-12 | Fixed | Be able to filter by milestone                 | Feature Request | High   | 0.5  | 
-13 | Fixed | Sort by bug #                                  | Feature Request | Medium | 0.4  | 
-14 | Fixed | Load YAML                                      | Feature Request | Medium | 0.6  | 
-15 | Fixed | Save YAML                                      | Feature Request | Medium | 0.6  | 
-18 | Fixed | Be able to delete columns                      | Feature Request | High   | 0.5  | 
-19 | Fixed | Index filter changeable                        | Feature Request | High   | 0.7  | 
-20 | Fixed | Filters on CHOICEs dropdown, additive          | Feature Request | Medium | 0.7  | 
-23 | Fixed | Property deletion confirmation                 | Enhancement     | High   | 0.6  | 
-24 | Fixed | Editable Properties                            | Feature Request | Medium | 0.9  | 
-25 | Fixed | Creation of LSTRING properties                 | Enhancement     | Medium | 0.7  | 
-26 | Fixed | Search support for LSTRINGs                    | Feature Request | Medium | 0.9  | 
-27 | Fixed | File command line arguments                    | Feature Request | Medium | 0.10 | 
-28 | Fixed | Port command line argument                     | Feature Request | Low    | 0.10 | 
-29 | Open  | contents of a property can be stored in a file | Feature Request | High   | 0.10 | 
-31 | Fixed | Custom CSS (based on filename)                 | Feature Request | Low    | 0.11 | 
-32 | Open  | Custom logic                                   | Feature Request | Low    | N\A  | 
-34 | Open  | Wiki/Help Pages using this system              | Feature Request | High   | 1.0  | 
-35 | Fixed | Rearangeable Properties                        | Feature Request | Low    | 0.9  | 
+Bug ^ ID | Status ^ CHOICE Open-Fixed | Description ^ LSTRING | Type ^ CHOICE Defect-Blocker-Enhancement-Feature Request | Priority ^ CHOICE Low-Medium-High | Milestone ^ STRING ||
+3  | Fixed | Be able to edit bugs                           | Feature Request | High   | 0.2  ||
+5  | Fixed | Filter by type                                 | Feature Request | Medium | 0.3  ||
+7  | Fixed | filter by status                               | Feature Request | Medium | 0.3  ||
+8  | Fixed | sort by priority                               | Feature Request | High   | 0.4  ||
+9  | Fixed | redirect and flash instead of showing page     | Enhancement     | Medium | 0.2  ||
+10 | Fixed | Deletion confirmation message                  | Enhancement     | Medium | 0.3  ||
+11 | Fixed | Be able to add new columns                     | Feature Request | Low    | 0.5  ||
+12 | Fixed | Be able to filter by milestone                 | Feature Request | High   | 0.5  ||
+13 | Fixed | Sort by bug #                                  | Feature Request | Medium | 0.4  ||
+14 | Fixed | Load YAML                                      | Feature Request | Medium | 0.6  ||
+15 | Fixed | Save YAML                                      | Feature Request | Medium | 0.6  ||
+18 | Fixed | Be able to delete columns                      | Feature Request | High   | 0.5  ||
+19 | Fixed | Index filter changeable                        | Feature Request | High   | 0.7  ||
+20 | Fixed | Filters on CHOICEs dropdown, additive          | Feature Request | Medium | 0.7  ||
+23 | Fixed | Property deletion confirmation                 | Enhancement     | High   | 0.6  ||
+24 | Fixed | Editable Properties                            | Feature Request | Medium | 0.9  ||
+25 | Fixed | Creation of LSTRING properties                 | Enhancement     | Medium | 0.7  ||
+26 | Fixed | Search support for LSTRINGs                    | Feature Request | Medium | 0.9  ||
+27 | Fixed | File command line arguments                    | Feature Request | Medium | 0.10 ||
+28 | Fixed | Port command line argument                     | Feature Request | Low    | 0.10 ||
+29 | Open  | contents of a property can be stored in a file | Feature Request | High   | 0.10 ||
+31 | Fixed | Custom CSS (based on filename)                 | Feature Request | Low    | 0.11 ||
+32 | Open  | Custom logic                                   | Feature Request | Low    | N\A  ||
+34 | Open  | Wiki/Help Pages using this system              | Feature Request | High   | 1.0  ||
+35 | Fixed | Rearangeable Properties                        | Feature Request | Low    | 0.9  ||

@@ -2,7 +2,7 @@ require 'yaml'
 
 def load_tdb3 file
 	input = File.new file, 'r'
-	lines = input.readlines
+	lines = input.read.split('||')
 	# If it is a blank file
 	if lines.empty? ; return {}, {}, [] ; end
 	db = {}
@@ -63,7 +63,7 @@ def save_tdb3 db, schema, order, file
 	end
 	text.chop!
 	text.chop!
-	text += "\n"
+	text += "||\n"
 	# Save data
 	id_location = 0
 	schema.each { |pair| if pair[1] == "ID" ; id_location = order.index(pair[0]) ; end }
@@ -84,14 +84,14 @@ def save_tdb3 db, schema, order, file
 			if id_location == x
 				space = length[x] - key.to_s.length
 				sp = ' ' * space
-				text += key.to_s + sp + ' | ' 
+				text += key.to_s + sp + ' |' 
 			else
 				space = length[x] - db[key][order[x]].length
 				sp = ' ' * space
-				text += db[key][order[x]] + sp + ' | ' 
+				text += ' ' + db[key][order[x]] + sp + ' |' 
 			end
 		end
-		text += "\n"
+		text += "|\n"
 	end
 	unless text.empty?
 		output = File.new file, 'w'

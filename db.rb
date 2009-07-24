@@ -67,13 +67,28 @@ def save_tdb3 db, schema, order, file
 	# Save data
 	id_location = 0
 	schema.each { |pair| if pair[1] == "ID" ; id_location = order.index(pair[0]) ; end }
-	p id_location
+	length = []
+	order.each do |x|
+		top = 0
+		db.each do |pair|
+			unless id_location == order.index(x)
+				if pair[1][x].length > top ; top = pair[1][x].length ; end
+			else
+				if pair[0].to_s.length > top ; top = pair[0].to_s.length ; end
+			end
+		end
+		length[order.index(x)] = top
+	end
 	db.keys.sort.each do |key|
 		order.length.times do |x|
 			if id_location == x
-				text += key.to_s + ' | ' 
+				space = length[x] - key.to_s.length
+				sp = ' ' * space
+				text += key.to_s + sp + ' | ' 
 			else
-				text += db[key][order[x]] + ' | ' 
+				space = length[x] - db[key][order[x]].length
+				sp = ' ' * space
+				text += db[key][order[x]] + sp + ' | ' 
 			end
 		end
 		text += "\n"
@@ -126,6 +141,6 @@ if __FILE__ == $0
 		p x
 		puts "\n\n"
 	end
-	save a[0], a[1], a[2], "EX3-OUT.tdb"
+	save_db a[0], a[1], a[2], "EX3-OUT.tdb"
 	#save db, schema, order, "EX2-OUT.tdb"
 end

@@ -1,4 +1,15 @@
-table, span.flash
+div.wrapper
+{
+color:#000000;
+background-color:#fff;
+padding-top:0px;
+padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+border: none;
+}
+
+table, span.flash, div
 {
 color:#000000;
 background-color:#bbffee;

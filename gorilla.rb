@@ -21,6 +21,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			@id_location = 0
 			@order2 = []
 		end
+		@mode = :table
 	end
 	
 	def do_GET(request, response)
@@ -32,6 +33,9 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			if request.path.index(controller) != nil
 				cur = controller
 			end
+		end
+		if File.exists?(@file + '.rb')
+			eval File.read(@file + '.rb')
 		end
 		if controllers.index(cur) != nil or request.path == '/'
 			response['Content-Type'] = "text/html"

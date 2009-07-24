@@ -41,13 +41,17 @@ STRING - Short strings/text (names, version numbers, contexts, etc.)
 LSTRING - Long strings/text (descriptions, the text of articles, etc.)
 CHOICE - Set choices (on or off, high medium or low, etc.) Place your choices in the 'Additional Data' field, separated by hyphens. Ex: Low-Medium-High
 
-If you would like to delete a property click the 'Edit Properties' link and use the delete button on the page it takes you to.
+If you would like to delete or edit a property click the 'Edit Properties' link. For deletion, simply click the "Delete Property" link. If you want to edit a property you can change the name and its type (or choices if it is of the CHOICE type). Press "Save" to save your changes.
+
+To rearrange properties, click the "Rearrange properties" link and change the numbers according to what you would like.
 
 After you have created your types, you can start creating your database entries. Just click the link that says 'New X' and you can create your entries.
 
 After you have created a few entries, you should mess around with the filters. They're harder to explain than if you simply learn by using them.
 
 If you would like to change the global style sheet for Gorilla, change style.css, or if you would like to change the style only for your database, create a file with the same name as your database with the .css extension (i.e. BUGS.tdb.css). Add your custom CSS into that file.
+
+If you would like to have custom code for your database create a file with the same name as your database with the .rb extension (i.e. BUGS.tdb.rb). It is in this file you can write your custom code (in Ruby).
 
 Speed
 -----

@@ -48,14 +48,15 @@ def list(db, request)
 		end
 	end
 	keys.each do |key|
-		text += "<tr>"
-		text += "<td><a href=\"/view/#{key}\">#{key}</a></td>"
-		#text += "<div class='#{@order[@id_location]}'><a href=\"/view/#{key}\">#{key}</a></div>"
+		text += "<tr>" if @mode == :table
+		text += "<td><a href=\"/view/#{key}\">#{key}</a></td>" if @mode == :table
+		text += "<div class='wrapper'><div class='#{@order[@id_location]}'><a href=\"/view/#{key}\">#{key}</a></div>" if @mode == :div
 		@order2.each do |item|
-			text += "<td><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></td>"
-			#text += "<div class='#{item}'><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></div>"
+			text += "<td><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></td>" if @mode == :table
+			text += "<div class='#{item}'><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></div>" if @mode == :div
 		end
-		text += "</tr>"
+		text += "</div>" if @mode == :div
+		text += "</tr>" if @mode == :table
 	end
 	return text
 end

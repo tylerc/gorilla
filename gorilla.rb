@@ -25,7 +25,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 	
 	def do_GET(request, response)
 		response.status = 200
-		controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/editprop', '/deleteprop']
+		controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/createprop2', '/editprop', '/deleteprop', '/reprop', '/reprop2']
 		index = '/index'
 		cur = ''
 		controllers.each do |controller|

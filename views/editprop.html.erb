@@ -1,24 +1,24 @@
 <table>
-<tr>
-<form method='post' action='/createprop'>
 <% @order.each do |item| %>
-<td><input type='text' name='name'value='<%= item %>' size=<%= item.length %> /></td>
+<form method="POST" action='/createprop2'>
+<tr>
+<input type='hidden' name='oldname' value='<%= item %>' size=<%= item.length %> />
+<td><input type='text' name='name' value='<%= item %>' size=<%= item.length %> /></td>
+<% unless @schema[item].class == Array %>
+<td><input type='text' name='type'value='<%= @schema[item] %>' size=<%= @schema[item].length %> /></td>
+<% else %>
+<td><input type='text' name='type'value='<%= @schema[item].join('-') %>' size=<%= @schema[item].join('-').length %> /></td>
 <% end %>
-</tr>
+<td>
+<input type="submit" value="Save" />
+</td>
 </form>
-<tr>
-<% @order.each do |item| %>
-
-<% end %>
-</tr>
-<tr>
-<% @order.each do |item| %>
 <td>
 <form method='post' action='/deleteprop'>
 <input type='hidden' name='name' value='<%= item %>' />
 <input type='submit' value='Delete Property' onclick='return confirmSubmit("<%= item %>")'/>
 </form>
 </td>
-<% end %>
 </tr>
+<% end %>
 </table>

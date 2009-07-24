@@ -67,13 +67,14 @@ def save_tdb3 db, schema, order, file
 	# Save data
 	id_location = 0
 	schema.each { |pair| if pair[1] == "ID" ; id_location = order.index(pair[0]) ; end }
-	order2 = order.clone
-	order2.delete_at(id_location)
-	
+	p id_location
 	db.keys.sort.each do |key|
-		text += key.to_s
-		order2.length.times do |x|
-			text += ' | ' + db[key][order2[x]]
+		order.length.times do |x|
+			if id_location == x
+				text += key.to_s + ' | ' 
+			else
+				text += db[key][order[x]] + ' | ' 
+			end
 		end
 		text += "\n"
 	end
@@ -120,7 +121,7 @@ end
 
 if __FILE__ == $0
 	#db, schema, order = load "EXAMPLE2.tdb"
-	a = load("EX3-OUT.tdb")
+	a = load_db("EX3-OUT.tdb")
 	a.each do |x|
 		p x
 		puts "\n\n"

@@ -1,0 +1,15 @@
+<form method="POST" action="/reprop2">
+<table>
+<% @order.each do |item| %>
+<tr>
+<% if @schema[item] != "ID" %>
+<td><input name="<%= item %>" type="text" value="<%= @order.index(item) %>" size="<%= @order.index(item).to_s.length %>"/></td>
+<% else %>
+<td><%= @order.index(item) %><input name="<%= item %>" type="hidden" value="<%= @order.index(item) %>" /></td>
+<% end %>
+<td><%= item %></td>
+</tr>
+<% end %>
+</table>
+<input type='submit' value='Big Ass Save Button' style="width:300px;height:100px;">
+</form>

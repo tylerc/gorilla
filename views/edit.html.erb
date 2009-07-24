@@ -14,7 +14,7 @@ db[number] = @db[number]
 <% @order2.each do |item| %>
 
 <% if @schema[item] == "LSTRING" or @schema[item] == "STRING" %>
-<td><input type='text' name='<%= item %>' value='<%= db.values[0][item] %>'/></td>
+<td><input type='text' name='<%= item %>' value='<%= db.values[0][item] %>' size="<%= db.values[0][item].length %>"/></td>
 <% end %>
 <% if @schema[item].class == Array %>
 <td><%= gen_options([@schema[item], @schema[item]], item, db.values[0][item]) %></td>

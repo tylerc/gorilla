@@ -1,0 +1,14 @@
+<%= request.query.inspect %>
+<%
+order = []
+request.query.each do |pair|
+	order[pair[1].to_i] = pair[0]
+end
+%>
+<%= @order.inspect %>
+<%= order.inspect %>
+<%
+@order = order.clone
+save_db @db, @schema, @order, @file
+response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Properties%20Rearranged")
+%>

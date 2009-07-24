@@ -1,0 +1,18 @@
+<% 
+@schema[request.query['name']] = @schema[request.query['oldname']]
+@schema.delete request.query['oldname']
+@order[@order.index(request.query['oldname'])] = request.query['name']
+unless request.query['oldname'] == request.query['name']
+	@db.each do |pair|
+		@db[pair[0]][request.query['name']] = @db[pair[0]][request.query['oldname']]
+		@db[pair[0]].delete request.query['oldname']
+	end
+end
+unless request.query['type'].index('-') != nil
+	@schema[request.query['name']] = request.query['type']
+else
+	@schema[request.query['name']] = request.query['type'].split('-')
+end
+save_db @db, @schema, @order, @file
+response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Property%20Saved")
+%>

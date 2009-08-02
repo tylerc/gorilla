@@ -13,6 +13,11 @@ Notice
 
 Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. The goal for version 1.0 is to have it be able to be used as a wiki.
 
+Requirements
+------------
+
+To run this, all you should need is Ruby and a web browser! (http://ruby-lang.org )
+
 Using
 -----
 

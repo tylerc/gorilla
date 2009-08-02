@@ -1,0 +1,7 @@
+div, table { background: #fff; }
+.Page { display: none; }
+.Title { font-size: 32pt; }
+.Body { font-size: 22pt; }
+.Author { font-size: 18pt; font-style: italic; }
+div { width: 780px; border: none; }
+.wrapper { margin: 20px 0 20px 0;  }

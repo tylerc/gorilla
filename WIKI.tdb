@@ -1,2 +1,4 @@
 Page ^ ID | Title ^ LSTRING | Body ^ LSTRING | Author ^ STRING ||
-1 | The title of a real post | This is some text, very cool | Tyler Church ||
+1 | The title of a real post | This is some text, very cool
+<br /><br />
+<b>We can use HTML too!</b> | Tyler Church ||

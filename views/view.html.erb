@@ -1,13 +1,14 @@
+<% unless @mode == :div %>
 <table>
 <tr>
 <% @order.each do |item| %>
 <td><%= item %></td>
 <% end %>
 </tr>
+<% end %>
 <% 
 number = request.path.split('/')[-1].to_i
 db = {number => @db[number]}
-p db
 %>
 <%= list db, request %>
 </table>

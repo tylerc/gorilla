@@ -12,7 +12,7 @@
 <td><input type='text' name='<%= item %>' /></td>
 <% end %>
 <% if @schema[item] == "LSTRING" %>
-<td><textarea rows="30" cols="30"></textarea></td>
+<td><textarea rows="30" cols="30" name='<%= item %>'></textarea></td>
 <% end %>
 <% if @schema[item].class == Array %>
 <td><%= gen_options([@schema[item], @schema[item]], item) %></td>

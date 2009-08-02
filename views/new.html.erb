@@ -8,8 +8,11 @@
 <td><%= begin ; @db.keys.sort[-1]+1 ; rescue ; 1 ; end %><input type='hidden' value=<%= begin ; @db.keys.sort[-1]+1 ; rescue ; 1 ; end %> name='id'  /></td>
 <% @order2.each do |item| %>
 
-<% if @schema[item] == "LSTRING" or @schema[item] == "STRING" %>
+<% if @schema[item] == "STRING" %>
 <td><input type='text' name='<%= item %>' /></td>
+<% end %>
+<% if @schema[item] == "LSTRING" %>
+<td><textarea rows="30" cols="30"></textarea></td>
 <% end %>
 <% if @schema[item].class == Array %>
 <td><%= gen_options([@schema[item], @schema[item]], item) %></td>

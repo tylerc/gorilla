@@ -13,8 +13,11 @@ db[number] = @db[number]
 <td><%= number %><input type='hidden' value=<%= number %> name='id'  /></td>
 <% @order2.each do |item| %>
 
-<% if @schema[item] == "LSTRING" or @schema[item] == "STRING" %>
+<% if @schema[item] == "STRING" %>
 <td><input type='text' name='<%= item %>' value='<%= db.values[0][item] %>' size="<%= db.values[0][item].length %>"/></td>
+<% end %>
+<% if @schema[item] == "LSTRING" %>
+<td><textarea name='<%= item %>' rows="30" cols="30"><%= db.values[0][item] %></textarea></td>
 <% end %>
 <% if @schema[item].class == Array %>
 <td><%= gen_options([@schema[item], @schema[item]], item, db.values[0][item]) %></td>

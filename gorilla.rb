@@ -22,6 +22,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			@order2 = []
 		end
 		@mode = :table
+		@inline_links = true
 	end
 	
 	def do_GET(request, response)

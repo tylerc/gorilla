@@ -48,12 +48,17 @@ def list(db, request)
 		end
 	end
 	keys.each do |key|
+		link = ""
+		link = "<a href=\"/view/#{key}\">#{key}</a>" if @inline_links
+		link = "#{key}" if !@inline_links
 		text += "<tr>" if @mode == :table
-		text += "<td><a href=\"/view/#{key}\">#{key}</a></td>" if @mode == :table
-		text += "<div class='wrapper'><div class='#{@order[@id_location]}'><a href=\"/view/#{key}\">#{key}</a></div>" if @mode == :div
+		text += "<td>#{link}</td>" if @mode == :table
+		text += "<div class='wrapper'><div class='#{@order[@id_location]}'>#{link}</div>" if @mode == :div
 		@order2.each do |item|
-			text += "<td><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></td>" if @mode == :table
-			text += "<div class='#{item}'><a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a></div>" if @mode == :div
+			link = "<a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a>" if @inline_links
+			link = "#{ @db[key][item] }" if !@inline_links
+			text += "<td>#{link}</td>" if @mode == :table
+			text += "<div class='#{item}'>#{link}</div>" if @mode == :div
 		end
 		text += "</div>" if @mode == :div
 		text += "</tr>" if @mode == :table

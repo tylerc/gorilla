@@ -126,6 +126,7 @@ end
 <table>
 	<%= filter_list(request) %>
 </table>
+<% unless @mode == :div %>
 <table class='main'>
 		<tr>
 	<% @order.each do |item| %>
@@ -141,6 +142,7 @@ end
 		<td><a href='<%= build_query(query) %>'><%= item %></a></td>
 	<% end %>
 		</tr>
+<% end %>
 <% db = filter find_filters(request), @db %>
 	<%= list(db, request) %>
 </table>

@@ -61,7 +61,7 @@ If you would like to have custom code for your database create a file with the s
 Speed
 -----
 
-Gorilla runs very quickly for all the practical use I've gotten out of it. But I decided to create more in-depth and stressful tests (see stress.rb and test.rb if you would like to run them yourself). 
+Gorilla runs very quickly for all the practical use I've gotten out of it. But I decided to create more in-depth and stressful tests (see test/stress.rb and test/test.rb if you would like to run them yourself). 
 
 What will interest most people is the usability benchmarks at the bottom, which shows what the user experiences as the database grows.
 

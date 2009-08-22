@@ -72,7 +72,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 end
 
 if __FILE__ == $0
-	file = 'BUGS.tdb'
+	file = 'BUGS/BUGS.tdb'
 	port = 8000
 	ARGV.each do |i|
 		if i == '-f'

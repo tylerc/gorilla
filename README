@@ -24,7 +24,7 @@ Using
 To get an idea of what Gorilla can do run this command:
 ruby gorilla.rb
 or this if you want to be specific ('-f' is the file, '-p' is the port to start the server on)
-ruby gorilla.rb -f BUGS.tdb -p 8000
+ruby gorilla.rb -f BUGS/BUGS.tdb -p 8000
 
 If you navigate your web browser to localhost:8000 you should be able to see Gorilla in action!
 

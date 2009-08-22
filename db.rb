@@ -46,6 +46,7 @@ end
 
 def save_tdb3 db, schema, order, file
 	text = ""
+	# Create header
 	order.length.times do |x|
 		text += order[x].to_s + " ^ "
 		if schema[order[x]].class == Array
@@ -67,6 +68,7 @@ def save_tdb3 db, schema, order, file
 	# Save data
 	id_location = 0
 	schema.each { |pair| if pair[1] == "ID" ; id_location = order.index(pair[0]) ; end }
+	# Find the longest entry (so the output looks nice)
 	length = []
 	order.each do |x|
 		top = 0
@@ -79,16 +81,17 @@ def save_tdb3 db, schema, order, file
 		end
 		length[order.index(x)] = top
 	end
+	# Actually go through and save the data
 	db.keys.sort.each do |key|
 		order.length.times do |x|
 			if id_location == x
 				space = length[x] - key.to_s.length
 				sp = ' ' * space
-				text += key.to_s + sp + ' |' 
+				text << key.to_s + sp + ' |' 
 			else
 				space = length[x] - db[key][order[x]].length
 				sp = ' ' * space
-				text += ' ' + db[key][order[x]] + sp + ' |' 
+				text << ' ' + db[key][order[x]] + sp + ' |' 
 			end
 		end
 		text += "|\n"
@@ -97,6 +100,7 @@ def save_tdb3 db, schema, order, file
 		output = File.new file, 'w'
 		output.print text
 		output.close
+		puts "Saved"
 	else
 		puts "***************\nFILE SAVE ERROR\n***************"
 	end
@@ -123,8 +127,8 @@ end
 
 def load_db file
 	if !File.exists?(file)
-			a = File.new file, 'w'
-			a.close
+		a = File.new file, 'w'
+		a.close
 	end
 	if file[-3..-1] == 'yml' or file[-4..-1] == 'yaml'
 		return load_yaml(file)

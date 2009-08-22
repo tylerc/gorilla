@@ -35,6 +35,9 @@ class CustomServlet < HTTPServlet::AbstractServlet
 				cur = controller
 			end
 		end
+		Dir.glob("helpers/*.rb").each do |helper|
+			load helper
+		end
 		if File.exists?(@file + '.rb')
 			eval File.read(@file + '.rb')
 		end

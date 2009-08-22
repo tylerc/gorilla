@@ -100,7 +100,6 @@ def save_tdb3 db, schema, order, file
 		output = File.new file, 'w'
 		output.print text
 		output.close
-		puts "Saved"
 	else
 		puts "***************\nFILE SAVE ERROR\n***************"
 	end

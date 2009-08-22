@@ -46,14 +46,14 @@ def list(db, request)
 	end
 	keys.each do |key|
 		link = ""
-		link = "<a href=\"/view/#{key}\">#{key}</a>" if @inline_links
-		link = "#{key}" if !@inline_links
+		link = "<a href=\"/view/#{key}\">#{key}</a>" if request.query["inline_links"] == "true"
+		link = "#{key}" if request.query["inline_links"] == "false"
 		text += "<tr>" if request.query["mode"] == "table"
 		text += "<td>#{link}</td>" if request.query["mode"] == "table"
 		text += "<div class='wrapper'><div class='#{@order[@id_location]}'>#{link}</div>" if request.query["mode"] == "div"
 		@order2.each do |item|
-			link = "<a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a>" if @inline_links
-			link = "#{ @db[key][item] }" if !@inline_links
+			link = "<a class='intable' href='/?filter#{item}#{@db[key][item]}'>#{ @db[key][item] }</a>" if request.query["inline_links"] == "true"
+			link = "#{ @db[key][item] }" if request.query["inline_links"] == "false"
 			text += "<td>#{link}</td>" if request.query["mode"] == "table"
 			text += "<div class='#{item}'>#{link}</div>" if request.query["mode"] == "div"
 		end

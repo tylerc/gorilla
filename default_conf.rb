@@ -1,2 +1,2 @@
 request.query["mode"] ||= "table"
-p request.query
+request.query["inline_links"] ||= "true"

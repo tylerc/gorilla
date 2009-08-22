@@ -1,5 +1,5 @@
 request.query["mode"] = "div" # Set mode to div, instead of table, the default
-@inline_links = false # Don't give each attribute a link to its filter
+request.query["inline_links"] = "false" # Don't give each attribute a link to its filter
 
 if cur == '/index' or cur == '' # If we are in the index listing
 	request.query["r"] = "1" # Reverse the order of the page listings

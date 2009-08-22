@@ -21,7 +21,6 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			@id_location = 0
 			@order2 = []
 		end
-		@inline_links = true
 	end
 	
 	def do_GET(request, response)

@@ -11,3 +11,10 @@ end
 if cur == '' or cur == '/index'
 	default_filter({"Status" => ["Open"]}, request)
 end
+
+# How to dynamically add a column, an example:
+#@db.each do |pair|
+#	@db[pair[0]]["Length"] = @db[pair[0]]["Description"].length
+#end
+#@order += ["Length"]
+#@order2 += ["Length"]

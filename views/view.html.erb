@@ -1,4 +1,4 @@
-<% unless @mode == :div %>
+<% unless request.query["mode"] == "div" %>
 <table>
 <tr>
 <% @order.each do |item| %>

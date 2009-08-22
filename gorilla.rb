@@ -21,7 +21,6 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			@id_location = 0
 			@order2 = []
 		end
-		@mode = :table
 		@inline_links = true
 	end
 	
@@ -35,6 +34,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 				cur = controller
 			end
 		end
+		eval File.read("default_conf.rb"), binding
 		Dir.glob("helpers/*.rb").each do |helper|
 			load helper
 		end

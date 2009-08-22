@@ -4,7 +4,7 @@
 <table>
 	<%= filter_list(request) %>
 </table>
-<% unless @mode == :div %>
+<% unless request.query["mode"] == "div" %>
 <table class='main'>
 		<tr>
 	<% @order.each do |item| %>

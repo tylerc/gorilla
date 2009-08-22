@@ -17,7 +17,7 @@
 				query.delete 'r'
 			end
 		%>
-		<td><a href='<%= build_query(query) %>'><%= item %></a></td>
+		<td id="<%= item %>Col"><a href='<%= build_query(query) %>'><%= item %></a></td>
 	<% end %>
 		</tr>
 <% end %>

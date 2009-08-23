@@ -21,6 +21,8 @@ class CustomServlet < HTTPServlet::AbstractServlet
 			@id_location = 0
 			@order2 = []
 		end
+		# @db_final is sacred, don't change it
+		@db_final = @db.clone
 	end
 	
 	def do_GET(request, response)

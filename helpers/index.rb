@@ -28,7 +28,7 @@ def find_filters request
 end
 
 def filter items, db=@db
-	db2 = @db.clone
+	db2 = db.clone
 	db.each_key do |key|
 		items.each_key do |key2|
 			if items[key2].index(db[key][key2]) == nil
@@ -81,7 +81,7 @@ def filter_list request
 		if @schema[item] == "STRING"
 			strings = ['*']
 			links = ['*']
-			@db.each_value do |value|
+			@db_final.each_value do |value|
 				strings += [value[item]]
 				links += [build_query(request.query) + "filter#{item}#{value[item]}"]
 			end

@@ -1,11 +1,14 @@
 <%= request.query.inspect %>
 <%
 order = []
-p request.query
 request.query.each do |pair|
-	order[pair[1].to_i] = pair[0]
+	if @order.index(pair[0]) != nil
+		order[pair[1].to_i] = pair[0]
+	end
 end
-p order
+#request.query.each do |pair|
+#	order[pair[1].to_i] = pair[0]
+#end
 %>
 <%= @order.inspect %>
 <%= order.inspect %>

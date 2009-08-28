@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 class Simple < Mongrel::HttpHandler
 	def initialize file
 		@file = file
@@ -78,19 +77,9 @@ class Simple < Mongrel::HttpHandler
 	end
 end
 
-file = 'BUGS/BUGS.tdb'
-port = 8000
-ARGV.each do |i|
-	if i == '-f'
-		file = ARGV[ARGV.index(i)+1]
-	end
-	if i == '-p'
-		port = ARGV[ARGV.index(i)+1]
-	end
-end
 # Mount servlets.
-h=Mongrel::HttpServer.new("0.0.0.0", port)
-h.register("/", Simple.new(file))
+h=Mongrel::HttpServer.new("0.0.0.0", @port)
+h.register("/", Simple.new(@file))
 
 # Trap signals so as to shutdown cleanly.
 ['TERM', 'INT'].each do |signal|

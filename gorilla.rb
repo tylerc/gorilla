@@ -1,11 +1,19 @@
-w = false
+@w = false
+@file = 'BUGS/BUGS.tdb'
+@port = 8000
 ARGV.each do |i|
+	if i == '-f'
+		@file = ARGV[ARGV.index(i)+1]
+	end
+	if i == '-p'
+		@port = ARGV[ARGV.index(i)+1]
+	end
 	if i == '-w'
-		w = true
+		@w = true
 	end
 end
 begin
-	raise LoadError unless w == false
+	raise LoadError unless @w == false
 	require 'rubygems'
 	require 'mongrel'
 	require 'erb'

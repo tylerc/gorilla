@@ -74,19 +74,9 @@ class CustomServlet < HTTPServlet::AbstractServlet
 	alias :do_POST :do_GET
 end
 
-file = 'BUGS/BUGS.tdb'
-port = 8000
-ARGV.each do |i|
-	if i == '-f'
-		file = ARGV[ARGV.index(i)+1]
-	end
-	if i == '-p'
-		port = ARGV[ARGV.index(i)+1]
-	end
-end
 # Mount servlets.
-s = HTTPServer.new(:Port => port, :MimeTypes =>  WEBrick::HTTPUtils::DefaultMimeTypes, :DocumentRoot => Dir.pwd)
-s.mount('/', CustomServlet, file)
+s = HTTPServer.new(:Port => @port, :MimeTypes =>  WEBrick::HTTPUtils::DefaultMimeTypes, :DocumentRoot => Dir.pwd)
+s.mount('/', CustomServlet, @file)
 
 # Trap signals so as to shutdown cleanly.
 ['TERM', 'INT'].each do |signal|

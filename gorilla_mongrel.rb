@@ -96,7 +96,7 @@ if __FILE__ == $0
 		end
 	end
 	# Mount servlets.
-	h= Mongrel::HttpServer.new("0.0.0.0", "8000")
+	h=Mongrel::HttpServer.new("0.0.0.0", port)
 	h.register("/", Simple.new(file))
 
 	# Trap signals so as to shutdown cleanly.

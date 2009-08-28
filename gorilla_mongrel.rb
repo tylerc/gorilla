@@ -1,9 +1,4 @@
 #!/usr/bin/env ruby
-require 'ostruct'
-require 'rubygems'
-require 'mongrel'
-require 'erb'
-require 'db'
 
 class Simple < Mongrel::HttpHandler
 	def initialize file
@@ -64,7 +59,6 @@ class Simple < Mongrel::HttpHandler
 				if request.path == '/'
 					file_name = "views/#{index}.html.erb"
 				else
-					p request.path
 					file_name = "views#{cur}.html.erb"
 				end
 				File.open(file_name, 'r') do |file|
@@ -84,26 +78,24 @@ class Simple < Mongrel::HttpHandler
 	end
 end
 
-if __FILE__ == $0
-	file = 'BUGS/BUGS.tdb'
-	port = 8000
-	ARGV.each do |i|
-		if i == '-f'
-			file = ARGV[ARGV.index(i)+1]
-		end
-		if i == '-p'
-			port = ARGV[ARGV.index(i)+1]
-		end
+file = 'BUGS/BUGS.tdb'
+port = 8000
+ARGV.each do |i|
+	if i == '-f'
+		file = ARGV[ARGV.index(i)+1]
 	end
-	# Mount servlets.
-	h=Mongrel::HttpServer.new("0.0.0.0", port)
-	h.register("/", Simple.new(file))
-
-	# Trap signals so as to shutdown cleanly.
-	['TERM', 'INT'].each do |signal|
-		trap(signal) {h.stop}
+	if i == '-p'
+		port = ARGV[ARGV.index(i)+1]
 	end
-
-	# Start the server and block on input
-	h.run.join
 end
+# Mount servlets.
+h=Mongrel::HttpServer.new("0.0.0.0", port)
+h.register("/", Simple.new(file))
+
+# Trap signals so as to shutdown cleanly.
+['TERM', 'INT'].each do |signal|
+	trap(signal) {h.stop}
+end
+
+# Start the server and block on input
+h.run.join

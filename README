@@ -58,6 +58,9 @@ If you would like to change the global style sheet for Gorilla, change style.css
 
 If you would like to have custom code for your database create a file with the same name as your database with the .rb extension (i.e. BUGS.tdb.rb). It is in this file you can write your custom code (in Ruby).
 
+By default gorilla uses Mongrel if you have it installed. If you would like to force webrick to be used, simply pass -w to gorilla. For example:
+ruby gorilla.rb -f WIKI/WIKI.tdb -w
+
 Speed
 -----
 

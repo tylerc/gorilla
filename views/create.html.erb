@@ -3,5 +3,5 @@ data = request.query.clone
 id = data.delete "id"
 @db[id.to_i] = data
 save_db @db, @schema, @order, @file
-response.redirect("/?m=Bug%20Saved")
+response.redirect("/?m=#{@order[@id_location]}%20Saved")
 %>

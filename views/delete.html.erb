@@ -2,5 +2,5 @@
 number = request.path.split('/')[-1].to_i
 @db.delete number
 save_db @db, @schema, @order, @file
-response.redirect("/?m=Bug%20Deleted")
+response.redirect("/?m=#{@order[@id_location]}%20Deleted")
 %>

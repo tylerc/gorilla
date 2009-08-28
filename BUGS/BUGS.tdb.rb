@@ -10,6 +10,7 @@ end
 # If we are in the index controller
 if cur == '' or cur == '/index'
 	default_filter({"Status" => ["Open"]}, request)
+	@db = @db_final if @db.empty? # Show all bugs if there are no open ones
 end
 
 # How to dynamically add a column, an example:

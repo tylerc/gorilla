@@ -1,0 +1,56 @@
+What Gorilla is
+===============
+Gorilla was originally created to be two things:
+	1. A simple bug tracker
+	2. An experiment
+The experiment was to see what I could do using only the standard tools Ruby comes with. I did this mostly for learning, and partly to have something useful come out of it. So far, it has stayed true to its goal of only using Ruby's standard library (but it does support Mongrel, simply because it seems faster than Webrick).
+
+Gorilla can do a whole host of things, if you are willing to change the way it looks and functions (using the database specific files), or even digging in to the internals and changing things.
+
+How Gorilla Works
+=================
+
+Anything I forgot? Or something you'd like to know about? File a bug on GitHub (http://github.com/tylerc/gorilla/issues ) or email me at tylertrain@yahoo.com
+
+Database
+--------
+Gorilla is run off of a custom database (using the extension .tdb, why? .Tyler's DataBase). db.rb contains all the code for loading and saving the files. db.rb also can load and save YAML files, but those aren't as easily readable for things like a TODO list, or Bug list where you would want each item on one line.
+
+EXT3-OUT.tdb (EX[perimental] 3[rd database iteration]-OUT[put]) is the test output when you run db.rb directly. There is no well defined testing structure for db.rb, the usual test is: output a database, read it back in, and output the database again from the read file and see if the output is the same each time.
+
+db.rb chooses the method for saving/loading based on what extension the file has, it does not open the file to find out.
+
+If there is an error when saving that renders the database blank, db.rb doesn't touch the database file.
+
+Views
+-----
+Views are .html.erb files (html mixed with Ruby code) located in the /views folder. Though they are called views, many do more than just output html. Whenever something is saved to the database, there is usually a "view" associated with it that takes the request, modifies the database, saves the database, and redirects to the index. The "view" in that case doesn't actually show you anything.
+
+header.html.erb and footer.html.erb are included (respectively) at the top and bottom of every view. The footer should contain any JavaScript needed from the rest of the views.
+
+Helpers
+-------
+Helpers are Ruby (.rb) files in the /helpers file. Helpers contain code that used to be cluttering the views. There are methods here for listing the database, building GET request queries based off of hashes, and more. Though helpers are (and should be) named after the view they are used in, all helpers are loaded regardless of what view we are in. header.rb should be used for code that will be available across views.
+
+gorilla.rb
+----------
+gorilla.rb's main functions are to choose what database is to be used, to handle command line arguments, and to reduce duplication between the code specific to different servers. gorilla.rb loads the mongrel server by default.
+
+gorilla_servername.rb
+---------------------
+gorilla_mongrel.rb and gorilla_webrick.rb load their respective servers, and try to fake complete similarity between the two (at least in the eyes of the views and helpers).
+
+default_conf.rb
+---------------
+This file contains all configuration for Gorilla. Try and keep any configuration in the request query, if possible.
+
+Filing Bugs
+===========
+It is slightly confusing to know where to file bugs since we have: GitHub's issue tracker (http://github.com/tylerc/gorilla/issues ) and BUGS/BUGS.tdb.
+Unless you have commit access, don't fork/clone gorilla.rb and add bugs to BUGS/BUGS.tdb. File a bug on GitHub. If I think it should go into BUGS/BUGS.tdb, I will add it.
+
+That said, what goes where? BUGS/BUGS.tdb is mostly for demonstration purposes for first time users of Gorilla, and holds major bugs and major feature requests. The GitHub issue tracker is for anything that affects developers of Gorilla or that is a relatively minor bug.
+
+Contributing Code
+=================
+If you have code you would like to add, simply fork Gorilla, make your changes, and use GitHub to send me a pull request. I will accept code in other ways, but that is the easiest (and preferred) method.

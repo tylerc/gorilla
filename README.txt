@@ -8,15 +8,15 @@ Gorilla is a simple database viewer and editor. It uses a custom database, that 
 
 Gorilla is meant to be simple, and not do everything. Its focus is not speed, but simplicity and flexibility. Gorilla only scales for personal and small team use (so don't try to make the next wikipedia with it). See "Speed" below for more information.
 
-Notice
-------
-
-Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. We have a basic Wiki up and running, but it could still be better.
-
 Requirements
 ------------
 
 To run this, all you should need is Ruby and a web browser! (http://ruby-lang.org )
+
+Developers
+----------
+
+If you would like to help develop Gorilla (or hack on it for your own reasons) see DEVELOPERS.txt for information on the workings of Gorilla.
 
 Using
 -----

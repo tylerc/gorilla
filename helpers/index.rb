@@ -101,7 +101,7 @@ def filter_list request
 			end
 		end
 		if @schema[item] == "LSTRING"
-			text += "<form method='post' action ='/'>"
+			text += "<form method='get' action ='/'>"
 			text += "<td>#{item}</td>"
 			filters = find_filters(request)
 			unless filters[item].nil?

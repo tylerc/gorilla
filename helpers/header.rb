@@ -18,6 +18,7 @@ end
 def build_query hash
 	text = "?"
 	hash.each do |pair|
+		pair[1] = "" if pair[1] == nil
 		unless pair[0] == 'm'
 		  text += pair[0] + '=' + pair[1] + '&'
 		end

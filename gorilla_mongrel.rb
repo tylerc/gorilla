@@ -4,24 +4,6 @@ class Simple < Mongrel::HttpHandler
 		@file = file
 	end
 	
-	def reload
-		@db, @schema, @order = load_db(@file)
-		if !@schema.empty?
-			@schema.each_key do |key|
-				if @schema[key] == "ID"
-					@id_location = @order.index(key)
-					@order2 = @order.clone
-					@order2.delete_at @id_location
-				end
-			end
-		else
-			@id_location = 0
-			@order2 = []
-		end
-		# @db_final is sacred, don't change it
-		@db_final = @db.clone
-	end
-	
 	def process(mongrel_request, response)
 		reload
 		response.start do |head,out|

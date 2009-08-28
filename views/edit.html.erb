@@ -9,7 +9,7 @@ db[number] = @db[number]
 <td><%= item %></td>
 <% end %>
 </tr>
-<form method='post' action='/create'>
+<form method='get' action='/create'>
 <td><%= number %><input type='hidden' value=<%= number %> name='id'  /></td>
 <% @order2.each do |item| %>
 

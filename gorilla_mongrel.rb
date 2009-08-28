@@ -33,46 +33,7 @@ class Simple < Mongrel::HttpHandler
 			end
 			request.query = Mongrel::HttpRequest.query_parse(mongrel_request.params['QUERY_STRING']).clone
 			request.path = mongrel_request.params["REQUEST_PATH"].clone
-			controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/createprop2', '/editprop', '/deleteprop', '/reprop', '/reprop2']
-			index = '/index'
-			cur = ''
-			controllers.each do |controller|
-				if request.path.index(controller) != nil
-					cur = controller
-				end
-			end
-			eval File.read("default_conf.rb"), binding
-			Dir.glob("helpers/*.rb").each do |helper|
-				load helper
-			end
-			if File.exists?(@file + '.rb')
-				eval File.read(@file + '.rb')
-			end
-			if controllers.index(cur) != nil or request.path == '/'
-				head['Content-Type'] = "text/html"
-				erb_text = ""
-				File.open('views/header.html.erb', 'r') do |file|
-					erb_text += file.read
-				end
-				file_name = ""
-				if request.path == '/'
-					file_name = "views/#{index}.html.erb"
-				else
-					file_name = "views#{cur}.html.erb"
-				end
-				File.open(file_name, 'r') do |file|
-					erb_text += file.read
-					file.close
-				end
-				File.open('views/footer.html.erb', 'r') do |file|
-					erb_text += file.read
-				end
-				out.write ERB.new(erb_text).result(binding)
-			end
-			if request.path.split('.')[-1] == 'css'
-				head['Content-Type'] = 'text/css'
-				out.write File.new(request.path[1..-1],'r').readlines.join
-			end
+			out.write output(request, head)
 		end
 	end
 end

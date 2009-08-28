@@ -12,6 +12,51 @@ ARGV.each do |i|
 		@w = true
 	end
 end
+def output(request, response)
+	text = ""
+	controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/createprop2', '/editprop', '/deleteprop', '/reprop', '/reprop2']
+	index = '/index'
+	cur = ''
+	controllers.each do |controller|
+		if request.path.index(controller) != nil
+			cur = controller
+		end
+	end
+	eval File.read("default_conf.rb"), binding
+	Dir.glob("helpers/*.rb").each do |helper|
+		load helper
+	end
+	if File.exists?(@file + '.rb')
+		eval File.read(@file + '.rb')
+	end
+	if controllers.index(cur) != nil or request.path == '/'
+		response['Content-Type'] = "text/html"
+		erb_text = ""
+		File.open('views/header.html.erb', 'r') do |file|
+			erb_text += file.read
+		end
+		file_name = ""
+		if request.path == '/'
+			file_name = "views/#{index}.html.erb"
+		else
+			p request.path
+			file_name = "views#{cur}.html.erb"
+		end
+		File.open(file_name, 'r') do |file|
+			erb_text += file.read
+			file.close
+		end
+		File.open('views/footer.html.erb', 'r') do |file|
+			erb_text += file.read
+		end
+		text += ERB.new(erb_text).result(binding)
+	end
+	if request.path.split('.')[-1] == 'css'
+		response['Content-Type'] = 'text/css'
+		text = File.new(request.path[1..-1],'r').readlines.join
+	end
+	return text
+end
 begin
 	raise LoadError unless @w == false
 	require 'rubygems'

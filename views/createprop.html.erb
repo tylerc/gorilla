@@ -22,7 +22,7 @@ case request.query['type']
 	when "ID"
 		@schema[request.query['name']] = "ID"
 end
-@order += request.query['name']
+@order += [request.query['name']]
 save_db @db, @schema, @order, @file
-response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Property%20Created")
+response.redirect("/?m=Property%20Created")
 %>

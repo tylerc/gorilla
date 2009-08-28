@@ -3,5 +3,5 @@ data = request.query.clone
 id = data.delete "id"
 @db[id.to_i] = data
 save_db @db, @schema, @order, @file
-response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Bug%20Saved")
+response.redirect("/?m=Bug%20Saved")
 %>

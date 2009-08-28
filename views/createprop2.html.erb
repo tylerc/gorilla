@@ -14,5 +14,5 @@ else
 	@schema[request.query['name']] = request.query['type'].split('-')
 end
 save_db @db, @schema, @order, @file
-response.set_redirect(HTTPStatus::MovedPermanently, "/?m=Property%20Saved")
+response.redirect("/?m=Property%20Saved")
 %>

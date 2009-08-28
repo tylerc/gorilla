@@ -1,6 +1,6 @@
 <% options = ["ID", "STRING", "LSTRING", "CHOICE"] %>
 <table>
-<form method='post' action='/createprop'>
+<form method='get' action='/createprop'>
 <tr><td>Name: </td><td><input type='text' name='name'/></td></tr>
 <tr><td>Type: </td><td><%= gen_options([options, options], 'type') %></td></tr>
 <tr><td>Addtional Data: </td><td><input type='text' name='add' /></td></tr>

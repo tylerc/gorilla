@@ -1,6 +1,6 @@
 <table>
 <% @order.each do |item| %>
-<form method="POST" action='/createprop2'>
+<form method="get" action='/createprop2'>
 <tr>
 <input type='hidden' name='oldname' value='<%= item %>' size=<%= item.length %> />
 <td><input type='text' name='name' value='<%= item %>' size=<%= item.length %> /></td>
@@ -14,7 +14,7 @@
 </td>
 </form>
 <td>
-<form method='post' action='/deleteprop'>
+<form method='get' action='/deleteprop'>
 <input type='hidden' name='name' value='<%= item %>' />
 <input type='submit' value='Delete Property' onclick='return confirmSubmit("<%= item %>")'/>
 </form>

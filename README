@@ -11,7 +11,7 @@ Gorilla is meant to be simple, and not do everything. Its focus is not speed, bu
 Notice
 ------
 
-Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. The goal for version 1.0 is to have it be able to be used as a wiki.
+Gorilla is decently stable, but is missing some features. All it is currently suitable for is a bug tracker, TODO list, and other simpler things. We have a basic Wiki up and running, but it could still be better.
 
 Requirements
 ------------

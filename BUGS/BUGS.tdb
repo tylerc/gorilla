@@ -25,5 +25,5 @@ Bug ^ ID | Status ^ CHOICE Open-Fixed | Description ^ LSTRING | Type ^ CHOICE De
 35 | Fixed | Rearangeable Properties                                                              | Feature Request | Low    | 0.9  ||
 36 | Fixed | Things like @mode and @inline_links should be in the request, not instance variables | Enhancement     | Medium | 1.1  ||
 38 | Open  | Documentation for developers                                                         | Enhancement     | High   | 1.1  ||
-39 | Open  | Add mongrel support                                                                  | Feature Request | Medium | 1.1  ||
+39 | Fixed | Add mongrel support                                                                  | Feature Request | Medium | 1.1  ||
 40 | Open  | Make gorilla.rb choose server                                                        | Feature Request | High   | 1.1  ||

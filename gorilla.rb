@@ -27,6 +27,9 @@ class CustomServlet < HTTPServlet::AbstractServlet
 	
 	def do_GET(request, response)
 		response.status = 200
+		def response.redirect(url)
+			set_redirect(HTTPStatus::Found, url)
+		end
 		controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/createprop2', '/editprop', '/deleteprop', '/reprop', '/reprop2']
 		index = '/index'
 		cur = ''

@@ -15,7 +15,7 @@ class Simple < Mongrel::HttpHandler
 			end
 			request.query = Mongrel::HttpRequest.query_parse(mongrel_request.params['QUERY_STRING']).clone
 			request.path = mongrel_request.params["REQUEST_PATH"].clone
-			out.write output(request, head)
+			out.write output(request, head, binding)
 		end
 	end
 end

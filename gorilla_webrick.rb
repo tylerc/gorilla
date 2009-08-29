@@ -14,7 +14,7 @@ class CustomServlet < HTTPServlet::AbstractServlet
 		def response.redirect(url)
 			set_redirect(HTTPStatus::Found, url)
 		end
-		response.body = output(request, response)
+		response.body = output(request, response, binding)
 	end
 	
 	alias :do_POST :do_GET

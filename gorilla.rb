@@ -29,7 +29,7 @@ def reload
 	# @db_final is sacred, don't change it
 	@db_final = @db.clone
 end
-def output(request, response)
+def output(request, response, bind)
 	text = ""
 	controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/createprop2', '/editprop', '/deleteprop', '/reprop', '/reprop2']
 	index = '/index'
@@ -39,7 +39,7 @@ def output(request, response)
 			cur = controller
 		end
 	end
-	eval File.read("default_conf.rb"), binding
+	eval File.read("default_conf.rb"), bind
 	Dir.glob("helpers/*.rb").each do |helper|
 		load helper
 	end
@@ -56,7 +56,6 @@ def output(request, response)
 		if request.path == '/'
 			file_name = "views/#{index}.html.erb"
 		else
-			p request.path
 			file_name = "views#{cur}.html.erb"
 		end
 		File.open(file_name, 'r') do |file|
@@ -66,7 +65,7 @@ def output(request, response)
 		File.open('views/footer.html.erb', 'r') do |file|
 			erb_text += file.read
 		end
-		text += ERB.new(erb_text).result(binding)
+		text += ERB.new(erb_text).result(bind)
 	end
 	if request.path.split('.')[-1] == 'css'
 		response['Content-Type'] = 'text/css'

@@ -68,20 +68,20 @@ Gorilla runs very quickly for all the practical use I've gotten out of it. But I
 
 What will interest most people is the usability benchmarks at the bottom, which shows what the user experiences as the database grows.
 
+Saving Benchmarks:
+1,000 database entries: 0.16 seconds
+10,000 database entries: 15.37 seconds
+100,000 database entries: Takes to long... (so we fake it for other benchmarks)
+
 Parsing Benchmarks:
-1,000 database entries: 0.04 seconds
-10,000 database entries: 0.42 seconds
-100,000 database entries: 4.55 seconds
-1,000,000 database entries: 59.26 seconds
-10,000,000 database entries: UNKNOWN (Ruby segfaults)
-I should stop now...
+1,000 database entries: 0.06 seconds
+10,000 database entries: 0.7 seconds
+100,000 database entries: 13.81 seconds
 
 Size Benchmarks (each line in the database is about the same which is unrealistic, but the statistics are still interesting):
-1,000 database entries: 44.6 KB (45641 bytes)
-10,000 database entries: 452.6 KB (463476 bytes)
-100,000 database entries: 4.5 MB (4737312 bytes)
-1,000,000 database entries: 46.1 MB (48371472 bytes)
-10,000,000 database entries: 470.9 MB (493729964 bytes)
+1,000 database entries: 54.9 KB (56181 bytes)
+10,000 database entries: 556.8 KB (570181 bytes)
+100,000 database entries: 5.8 MB (6089076 bytes)
 
 Usuability benchmarks:
 1,000 database entries: The index listing of everything takes the longest. Everything else runs at top speed

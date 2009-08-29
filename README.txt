@@ -84,7 +84,7 @@ Size Benchmarks (each line in the database is about the same which is unrealisti
 100,000 database entries: 5.8 MB (6089076 bytes)
 
 Usuability benchmarks:
-1,000 database entries: The index listing of everything takes the longest. Everything else runs at top speed
+1,000 database entries: The index listing of everything is a little slow. Everything else runs at top speed
 
 10,000 database entries: Index listing of everything is still the slowest, to the point of becoming almost unusable. Everything else is noticeably slower
 

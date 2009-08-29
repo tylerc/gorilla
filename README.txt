@@ -12,6 +12,10 @@ Requirements
 ------------
 
 To run this, all you should need is Ruby and a web browser! (http://ruby-lang.org )
+By default Gorilla uses WEBrick (which comes with Ruby), but Gorilla also runs on mongrel, and you can install it with:
+gem install mongrel
+
+You don't have to, but we reccomend it!
 
 Developers
 ----------

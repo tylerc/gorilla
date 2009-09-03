@@ -109,8 +109,14 @@ def filter_list request
 					text += "<td><a href='#{query = request.query.clone ; query.delete "filter#{item}" ; build_query(query)}'>#{x}</a></td>"
 				end
 			end
-			text += "<td><input type='text' name='filter#{item}'/><input type='submit' value='Search' /></td>"
-			text += "</form>"
+			text += "<td><input type='text' name='filter#{item}'/><input type='submit' value='Search' />"
+			find_filters(request).each do |pair|
+				pair[1].each do |type|
+					text += "<input type='hidden' name='filter#{pair[0]}#{type}'/>"
+				end
+			end
+			
+			text += "</td></form>"
 		end
 		text += "</tr>"
 	end

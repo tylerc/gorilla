@@ -27,3 +27,4 @@ Bug ^ ID | Status ^ CHOICE Open-Fixed | Description ^ LSTRING | Type ^ CHOICE De
 38 | Fixed | Documentation for developers                                                         | Enhancement     | High   | 1.1  ||
 39 | Fixed | Add mongrel support                                                                  | Feature Request | Medium | 1.1  ||
 40 | Fixed | Make gorilla.rb choose server                                                        | Feature Request | High   | 1.1  ||
+41 | Open  | Make gorilla use AJAX                                                                | Feature Request | Medium | 1.2  ||

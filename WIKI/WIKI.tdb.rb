@@ -3,7 +3,7 @@ request.query["inline_links"] = "false" # Don't give each attribute a link to it
 
 if cur == '/index' or cur == '' # If we are in the index listing
 	request.query["r"] = "1" # Reverse the order of the page listings
-	@db.each do |pair| # Make each title a link to its view page
-		@db[pair[0]]['Title'] = "<a href=\"/view/#{pair[0]}\">" + pair[1]['Title'] + "</a>"
+	@db.each do |key, value| # Make each title a link to its view page
+		@db[key]['Title'] = "<a href=\"/view/#{key}\">" + value['Title'] + "</a>"
 	end
 end

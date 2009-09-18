@@ -14,8 +14,8 @@ if cur == '' or cur == '/index'
 end
 
 # How to dynamically add a column, an example:
-#@db.each do |pair|
-#	@db[pair[0]]["Length"] = @db[pair[0]]["Description"].length
+#@db.each do |key, value|
+#	@db[key]["Length"] = @db[key]["Description"].length
 #end
 #@order += ["Length"]
 #@order2 += ["Length"]

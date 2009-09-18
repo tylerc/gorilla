@@ -99,9 +99,9 @@ def filter_list request
 				end
 			end
 			text += "<td><input type='text' name='filter#{item}'/><input type='submit' value='Search' />"
-			find_filters(request).each do |pair|
-				pair[1].each do |type|
-					text += "<input type='hidden' name='filter#{pair[0]}#{type}'/>"
+			find_filters(request).each do |key, value|
+				value.each do |type|
+					text += "<input type='hidden' name='filter#{key}#{type}'/>"
 				end
 			end
 			

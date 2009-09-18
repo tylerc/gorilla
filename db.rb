@@ -28,7 +28,7 @@ def load_tdb3 file
 		column = line.split('|')
 		column.each { |x| x.strip! }
 		id_location = 0
-		schema2.each { |pair| if pair[1] == "ID" ; id_location = order.index(pair[0]) ; end }
+		schema2.each { |key, value| if value == "ID" ; id_location = order.index(key) ; end }
 		order2 = order.clone
 		order2.delete_at(id_location)
 		hash = {}
@@ -67,16 +67,16 @@ def save_tdb3 db, schema, order, file
 	text += "||\n"
 	# Save data
 	id_location = 0
-	schema.each { |pair| if pair[1] == "ID" ; id_location = order.index(pair[0]) ; end }
+	schema.each { |key, value| if value == "ID" ; id_location = order.index(key) ; end }
 	# Find the longest entry (so the output looks nice)
 	length = []
 	order.each do |x|
 		top = 0
-		db.each do |pair|
+		db.each do |key, value|
 			unless id_location == order.index(x)
-				if pair[1][x].length > top ; top = pair[1][x].length ; end
+				if value[x].length > top ; top = value[x].length ; end
 			else
-				if pair[0].to_s.length > top ; top = pair[0].to_s.length ; end
+				if key.to_s.length > top ; top = key.to_s.length ; end
 			end
 		end
 		length[order.index(x)] = top

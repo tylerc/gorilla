@@ -3,9 +3,9 @@
 @schema.delete request.query['oldname']
 @order[@order.index(request.query['oldname'])] = request.query['name']
 unless request.query['oldname'] == request.query['name']
-	@db.each do |pair|
-		@db[pair[0]][request.query['name']] = @db[pair[0]][request.query['oldname']]
-		@db[pair[0]].delete request.query['oldname']
+	@db.each do |key, value|
+		@db[key][request.query['name']] = @db[key][request.query['oldname']]
+		@db[key].delete request.query['oldname']
 	end
 end
 unless request.query['type'].index('-') != nil

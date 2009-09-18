@@ -17,20 +17,20 @@ end
 
 def build_query hash
 	text = "?"
-	hash.each do |pair|
-		pair[1] = "" if pair[1] == nil
+	hash.each do |key, value|
+		value = "" if value == nil
 		# This moves all LSTRING filters to the proper place
 		# i.e. filterDescription=e becomes filterDescriptione
-		if pair[0][0..5] == 'filter' and !pair[1].empty?
-			@schema.each_key do |key|
-				if pair[0][6..-1].index(key) == 0
-					pair[0] += pair[1]
-					pair[1] = ""
+		if key[0..5] == 'filter' and !value.empty?
+			@schema.each_key do |key2|
+				if key[6..-1].index(key2) == 0
+					key += value
+					value = ""
 				end
 			end
 		end
-		unless pair[0] == 'm'
-			text += pair[0] + '=' + pair[1] + '&'
+		unless key == 'm'
+			text += key + '=' + value + '&'
 		end
 	end
 	return text

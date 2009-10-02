@@ -1,3 +1,7 @@
+require 'erb'
+require 'db'
+require 'ostruct'
+
 @w = false
 @file = 'BUGS/BUGS.tdb'
 @port = 8000
@@ -12,6 +16,7 @@ ARGV.each do |i|
 		@w = true
 	end
 end
+
 def reload
 	@db, @schema, @order = load_db(@file)
 	if !@schema.empty?
@@ -73,17 +78,13 @@ def output(request, response, bind)
 	end
 	return text
 end
+
 begin
 	raise LoadError unless @w == false
 	require 'rubygems'
 	require 'mongrel'
-	require 'erb'
-	require 'db'
-	require 'ostruct'
 	require 'gorilla_mongrel'
 rescue LoadError
 	require 'webrick'
-	require 'erb'
-	require 'db'
 	require 'gorilla_webrick'
 end

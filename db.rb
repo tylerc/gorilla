@@ -3,6 +3,7 @@ require 'yaml'
 def load_tdb3 file
 	input = File.new file, 'r'
 	lines = input.read.split('||')
+	input.close
 	# If it is a blank file
 	if lines.empty? ; return {}, {}, [] ; end
 	db = {}
@@ -40,7 +41,6 @@ def load_tdb3 file
 		end
 		db[column[id_location].to_i] = hash
 	end
-	input.close
 	return db, schema2, order
 end
 

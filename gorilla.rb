@@ -36,7 +36,10 @@ def reload
 end
 def output(request, response, bind)
 	text = ""
-	controllers = ['/index','/view', '/edit', '/delete', '/create', '/new', '/newprop', '/createprop', '/createprop2', '/editprop', '/deleteprop', '/reprop', '/reprop2']
+	controllers = Dir['views/*.html.erb']
+	controllers.length.times do |v|
+		controllers[v] = '/' + controllers[v].split('.')[0].split('/')[1]
+	end
 	index = '/index'
 	cur = ''
 	controllers.each do |controller|

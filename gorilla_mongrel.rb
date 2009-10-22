@@ -2,6 +2,7 @@
 class Simple < Mongrel::HttpHandler
 	def initialize file
 		@file = file
+		puts "Mongrel has started."
 	end
 	
 	def process(mongrel_request, response)
